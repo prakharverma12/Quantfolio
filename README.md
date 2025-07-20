@@ -21,16 +21,24 @@ A Streamlit-based web app for tracking your global investment portfolio with rea
 ## 📂 Folder Structure
 
 ```
-project-root/
-├── app.py                    # Main Streamlit app
-├── data/
-│   └── adjusted_transactions.csv
-│   └── currency_rates_july2023_july2025.csv
-├── utils/
-│   └── xirr_calculator.py
-│   └── adjust_transactions.py
-├── requirements.txt
-└── README.md
+portfolio-tracker/
+├── app.py                        # Streamlit app for portfolio visualization
+├── main.py                       # Script entry point (if needed)
+├── requirements.txt              # Python dependencies
+├── README.md                     # Project documentation
+
+├── data/                         # Input data files
+│   ├── currency_rates_july2023_july2025.csv
+│   ├── Stock_trading_2023.csv
+│   ├── Stock_trading_2024.csv
+│   └── Stock_trading_2025.csv
+
+├── utils/                        # Utility modules
+│   ├── currency_converter.py     # Currency conversion logic
+│   ├── data_loader.py            # Handles loading & merging trading data
+│   ├── split_adjuster.py         # Adjusts for stock splits
+│   └── xirr_calculator.py        # Calculates XIRR of portfolio
+
 ```
 
 ---
