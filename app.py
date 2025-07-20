@@ -93,7 +93,7 @@ def compute_portfolio_value(holdings, daily_prices, fx_rates):
 
 
 # --- Main App ---
-st.title("📊 Master Portfolio Tracker")
+st.title("📊 QuantFolio")
 transactions = load_transaction_files(['data/Stock_trading_2023.csv', 'data/Stock_trading_2024.csv', 'data/Stock_trading_2023.csv'])
 # Sample Data (Replace with actual loader)
 adj_df = adjust_transactions_for_splits(transactions)
