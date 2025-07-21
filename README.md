@@ -4,6 +4,7 @@
 
 A Streamlit-based web app for tracking your global investment portfolio with real-time valuations, currency-aware performance, split-adjusted prices, and XIRR analytics.
 
+<img width="1022" height="671" alt="image" src="https://github.com/user-attachments/assets/2fca523d-8cd3-483a-9e99-8ce2390ccd6b" />
 
 
 ## ✨ Features
@@ -77,15 +78,6 @@ streamlit run app.py
 ```
 
 ---
-
-## 🧪 Sample CSV Format
-
-`adjusted_transactions.csv`:
-
-| Date       | Symbol  | Quantity | Price | Currency |
-| ---------- | ------- | -------- | ----- | -------- |
-| 2023-07-01 | AAPL    | 5        | 180   | USD      |
-| 2023-08-12 | INFY.NS | 10       | 1450  | INR      |
 
 ---
 
