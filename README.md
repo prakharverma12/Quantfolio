@@ -3,6 +3,8 @@
 # 🌍 QuantFolio
 
 A Streamlit-based web app for tracking your global investment portfolio with real-time valuations, currency-aware performance, split-adjusted prices, and XIRR analytics.
+<img width="794" height="708" alt="image" src="https://github.com/user-attachments/assets/54dccfa2-a6ad-43e3-8467-8e83a031ef7f" />
+
 
 <img width="1022" height="671" alt="image" src="https://github.com/user-attachments/assets/2fca523d-8cd3-483a-9e99-8ce2390ccd6b" />
 
