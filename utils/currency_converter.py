@@ -1,21 +1,20 @@
 import pandas as pd
 
-def convert_currency(transactions: pd.DataFrame, currency_file: str) -> pd.DataFrame:
-    # Load FX rates
-    fx = pd.read_csv(currency_file)
-    fx['Date'] = pd.to_datetime(fx['Date'])
-
-    # Parse transaction date
-    transactions = transactions.copy()  # To avoid modifying original
-    transactions['Date'] = pd.to_datetime(transactions['Date/Time']).dt.normalize()
-
-    # Merge with FX data
-    merged = transactions.merge(fx, on='Date', how='left')
-
-    # Ensure Proceeds and FX columns are numeric
-    merged['Proceeds'] = pd.to_numeric(merged['Proceeds'], errors='coerce')
-    for col in ['USD_INR', 'USD_SGD']:
-        merged[col] = pd.to_numeric(merged[col], errors='coerce')
-        merged[f'Proceeds_{col}'] = merged['Proceeds'] * merged[col]
-    merged = merged.dropna()
-    return merged
+def convert_currency(transactions_df, fx_rates_df):
+    def get_fx_rate(row):
+        date = row['Date']
+        currency = row['Currency']
+        
+        if currency == 'USD':
+            return 1.0
+        elif currency == 'SGD':
+            return fx_rates_df.loc[date, ('USD_SGD', 'SGD=X')]
+        elif currency == 'INR':
+            return fx_rates_df.loc[date, ('USD_INR', 'INR=X')]
+        else:
+            raise ValueError(f"Unsupported currency: {currency}")
+    
+    transactions_df['FX Rate'] = transactions_df.apply(get_fx_rate, axis=1)
+    transactions_df['Amount_(USD)'] = transactions_df['T. Price'] / transactions_df['FX Rate']
+    
+    return transactions_df
